@@ -1,2 +1,2 @@
 # SMFP
-Projeto do Sistema de Mapeamento de Fluxo de Pessoas
+Projeto: Sistema de Mapeamento de Fluxo de Pessoas

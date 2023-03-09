@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/modal.css">
+</head>
+<body>
+    <div class="container">
+        <div class="ambiente-line">
+            <div class="ambiente">
+                <div class="container-box">
+                    <div class="box" onclick="addAmbiente(this)">
+
+                    </div>
+                    <div class="box" onclick="addAmbiente(this)">
+
+                    </div>
+                    <div class="box" onclick="addAmbiente(this)">
+
+                    </div>
+                    <div class="box" onclick="addAmbiente(this)">
+
+                    </div>
+                </div>
+
+
+                <div class="container-box">
+                    <div class="box" onclick="addAmbiente(this)">
+
+                    </div>
+                    <div class="box" onclick="addAmbiente(this)">
+
+                    </div>
+                    <div class="box" onclick="addAmbiente(this)">
+
+                    </div>
+                    <div class="box" onclick="addAmbiente(this)">
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="entrada">
+            <h3 style="border-bottom: solid 2px;">Entrada</h3>
+            <button id="bt_simular" onclick="startSimulation()">Simular</button>
+        </div>
+        
+        <div class="ranking" id="div_ranking">
+            <h1 style="text-align: center;">Parabéns! Com essa Orçanização <br><u>Você Pode Obter:</u></h1>
+            <ol id="rankingList">
+                
+            </ol>
+        </div>
+    </div>
+
+    <div id="modal" class="modal-container">
+        <div class="modal">
+            <div class="close" onclick="closeModal()"><span class="material-symbols-outlined">close</span></div>
+            <form onsubmit="return false" class="form-container">
+                <label>Nome Do Ambiente</label>
+                <input required id="inp_nomeAmbiente">
+                <label>Lucro do Ambiente</label>
+                <input required id="inp_lucroAmbiente" placeholder="R$ 0.00">
+
+                <button onclick="addInfos()">Adicionar</button>
+            </form>
+        </div>
+    </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+<script src="js/jquery.maskMoney.min.js" type="text/javascript"></script>
+<script>
+    $(function() {
+       $('#inp_lucroAmbiente').maskMoney({prefix: 'R$ '});
+    })
+</script>
+<script src="js/index.js"></script>
+
+
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <div class="container-calc">
+
+        <div class="container-input">
+            <p>Receita mensal</p>
+            <input id="inputReceitaMensal">
+        </div>
+
+        <div class="container-button">
+            <button onclick="calcularAumento()">calcular</button>
+        </div>
+
+    </div>
+
+    
+
+    <br>
+
+
+    <h2>Aumentos gerais</h2>
+    <p id="mensagem1">
+
+    </p>
+
+    <p id="mensagem2">
+
+    </p>
+
+    <h2>Aumento por setor</h2>
+    <p id="mensagem3"></p>
+    <p id="mensagem4"></p>
+    <p id="mensagem5"></p>
+    <p id="mensagem6"></p>
+
+    
+</body>
+</html>
+
+<script>
+
+    function calcularAumento(){
+
+        var receitaMensal = Number(inputReceitaMensal.value)
+        var totalAumentoCompra = receitaMensal * (52 / 100 + 1)
+        var totalAumentoAnuncio = receitaMensal * (18 / 100 + 1)
+
+        var rendimentoVestuario = receitaMensal * (19 / 100 + 1)
+        var rendimentoSupermercado = receitaMensal * (17 / 100 + 1)
+        var rendimentoCosmeticos = receitaMensal * (14 / 100 + 1)
+        var rendimentoRestaurante = receitaMensal * (13 / 100 + 1)
+
+        mensagem1.innerHTML = `Com base em pesquisas, cerca de 52% dos clientes costumam comprar por impulso.
+        <br> Isso nos leva a um cenário de aumento de compras equivalente a +R$${totalAumentoCompra - receitaMensal} mensais, aplicando estratégias com o auxílio de nossas mapas. <br><br>`
+ 
+
+        mensagem2.innerHTML = `Empresas costumam gastar cerca de 18% de suas despesas em anúncios. <br>
+        Com esse dado, podemos ter um acréscimo de +R$${totalAumentoAnuncio - receitaMensal} na receita mensal, com os alugueis desses locais.`
+
+        mensagem3.innerHTML = `Setores de vestuário podem ter um aumento de R$${(rendimentoVestuario - receitaMensal).toFixed(2)} na renda mensal`
+
+        mensagem4.innerHTML = `Setores de mercado podem ter um aumento de R$${(rendimentoSupermercado - receitaMensal).toFixed(2)} na renda mensal`
+
+        mensagem5.innerHTML = `Setores de cosméticos podem ter um aumento de R$${(rendimentoCosmeticos- receitaMensal).toFixed(2)} na renda mensal`
+
+        mensagem6.innerHTML = `Setores de restaurante/bares podem ter um aumento de R$${(rendimentoRestaurante - receitaMensal).toFixed(2)} na renda mensal`
+        
+    }
+
+
+
+
+
+</script>

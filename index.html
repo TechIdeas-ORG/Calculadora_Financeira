@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora financeira</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: row;
+            font-family: monospace;
+        }
+
+        .pai{
+            width: 40%;
+            margin: auto;
+        }
+
+        input, button{
+            margin-bottom: 8px;
+        }
+
+        button{
+            background-color: rgb(1, 184, 1);
+            color: white;
+            border: 0px solid black;
+            width: 30%;
+            height: 50px;
+        }
+        
+        p{
+            font-size: 16px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="pai">
+
+        <h1>Simule Aqui os seus ganhos!!</h1>
+        
+        <!-- <p>Quantas pessoas passam no seu Shopping por dia: <input id="ipt_pessoas"> </p>  -->
+        
+        <p>E qual é o rendimento bruto por mês: <input id="ipt_rendBruto"> </p>
+        
+    
+        <button onclick="calcular()">Ver meus ganhos!</button>
+        
+    </div>
+
+    <div class="pai" id="resp">
+        <p>Com o valor de <b>R$ <span id="sp_valorBruto"></span></b> Mensal você poderá chegar em até 5,83% a mais por mês. 70% AO ANO !!</p>
+        <p>Ou seja, o valor que passará a receber, pode chegar até em <b> R$ <span id="sp_valorMensal"></span> </b> ao mês!</p>
+        <p>E também <b>R$ <span id="sp_valorAnual"></span> </b> AO ANO!!</p>
+    </div>
+
+</body>
+</html>
+
+<script>
+    // Criação da regra de negócio
+    // Aumentar a margem de lucro em até 70% anualmente
+    
+    resp.style.visibility="hidden";
+    
+    function calcular(){
+        
+        //Limpeza
+        resp.style.visibility="visible";
+        sp_valorBruto.innerHTML='';
+
+        // var pessoas = Number(ipt_pessoas.value);
+        var rendBruto = Number(ipt_rendBruto.value);
+        var valorMensal = rendBruto + (rendBruto * 0.058); 
+
+        sp_valorBruto.innerHTML= rendBruto;
+        sp_valorMensal.innerHTML= valorMensal;
+        sp_valorAnual.innerHTML= (valorMensal * 12);
+
+
+    }
+
+</script>

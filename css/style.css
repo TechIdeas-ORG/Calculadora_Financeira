@@ -6,10 +6,7 @@ body{
     padding-left: 90px; /* O BODY FORÇARÁ QUALQUER ELEMENTO DENTRO DELE PARA 90px DE DISTÂNCIA DO LADO ESQUERDO */
     padding-right: 90px; /* O BODY FORÇARÁ QUALQUER ELEMENTO DENTRO DELE PARA 90px DE DISTÂNCIA DO LADO DIREITO */
     background-color: #1C1C1C;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    
     height: 100vh;
 }
 
@@ -51,9 +48,8 @@ input {
 /* -=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-*/
 .title-page-container {
     width: fit-content; /* LARGURA DESSA DIV SERÁ DEFINIDA A PARTIR DO QUE ELE PRECISA (DO SEU CONTEÚDO) */
-    position: absolute;
-    left: 91px;
-    top: 54px;
+    margin-left: 40px;
+    margin-top: 54px;
 }
 
 .title-page-container h1{
@@ -74,8 +70,15 @@ input {
     width: 63%;
 }
 
+.container-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 .container-two-box {
-    height: 200px;
+    margin-top: 50px;
     width: 80%;
     display: flex;
     background-color: white;
@@ -118,6 +121,7 @@ input {
     padding-left: 20px;
     padding-right: 20px;
     padding-bottom: 20px;
+    margin-bottom: 50px;
     text-align: center;
     /* -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
     /* ESSE ESTILO SERÁ ARQUIVADO PARA PRÓXIMAS SPRINTS */

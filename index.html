@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Financeiro</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="title-page-container">
+        <h1>Calculadora Financeira</h1>
+        <div class="underline-title"></div>
+    </div>
+    
+
+    <div class="container-two-box">
+        <div class="box">
+            <h1>Simule Aqui</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam nam recusandae similique veritatis porro facilis, neque animi minus, molestiae vitae expedita ipsa facere perferendis perspiciatis eius quasi quisquam tempore aliquam.</p>
+        </div>
+        <div class="box centralize">
+            <p>Receita Mensal</p>
+            <input placeholder="R$0000.00" id="inputReceitaMensal">
+            <button onclick="calcularAumento()">Calcular</button>
+        </div>
+    </div>
+
+    <div class="card-container">
+        <div class="card">
+            <h1>Aumentos gerais</h1>
+            <p id="mensagem1">
+        
+            </p>
+
+        </div>
+
+        <div class="card">
+            <h1>Redução de Despesa</h1>
+        
+            <p id="mensagem2">
+        
+            </p>
+        </div>
+
+        <div class="card">
+            <h1>Aumento por setor</h1>
+            <p id="msgVestuario"></p>
+            <p id="msgMercado"></p>
+            <p id="msgCosmeticos"></p>
+            <p id="msgVestuario"></p>
+        </div>
+    </div>
+
+    
+
+    
+</body>
+
+</html>
+<script>
+
+
+    function calcularAumento() {
+
+        var receitaMensal = Number(inputReceitaMensal.value)
+        var totalAumentoCompra = receitaMensal * (70 / 100 + 1)
+        var totalAumentoAnuncio = receitaMensal * (18 / 100 + 1)
+
+        var rendimentoVestuario = receitaMensal * (19 / 100 + 1)
+        var rendimentoSupermercado = receitaMensal * (17 / 100 + 1)
+        var rendimentoCosmeticos = receitaMensal * (14 / 100 + 1)
+        var rendimentoRestaurante = receitaMensal * (13 / 100 + 1)
+
+        // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+        // IMPLEMENTAR ESSA PARTE
+        /*var valorMensal = rendBruto + (rendBruto * 0.058);
+        var valorAnual = valorMensal * 12;*/
+
+        // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+
+        mensagem1.innerHTML =
+        `70% dos clientes costumam comprar por impulso.
+        <br> Levando em consideração esse dado, temos um aumento de <b>+R$${totalAumentoCompra - receitaMensal} mensais</b>, 
+        aplicando as estratégias com o auxílio de nossas mapas. <br>`
+
+
+        mensagem2.innerHTML =
+        `Empresas gastam 18% de suas despesas em anúncios. <br>
+        Podemos ter um acréscimo de <b>+R$${totalAumentoAnuncio - receitaMensal} na receita mensal </b>, com os alugueis dos locais.`
+
+        
+
+
+        msgVestuario.innerHTML =
+            `Setores de vestuário podem ter um aumento de <b>R$${(rendimentoVestuario - receitaMensal).toFixed(2)} na renda mensal</b>`
+
+        msgMercado.innerHTML =
+            `Setores de mercado podem ter um aumento de <b>R$${(rendimentoSupermercado - receitaMensal).toFixed(2)} na renda mensal</b>`
+
+        msgCosmeticos.innerHTML =
+            `Setores de cosméticos podem ter um aumento de <b>R$${(rendimentoCosmeticos - receitaMensal).toFixed(2)} na renda mensal</b>`
+
+        msgVestuario.innerHTML =
+            `Setores de restaurante/bares podem ter um aumento de <b>R$${(rendimentoRestaurante - receitaMensal).toFixed(2)} na renda mensal</b>`
+
+        
+    }
+
+</script>

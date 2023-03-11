@@ -1,49 +1,49 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>Simulador Financeiro</title>
+        <style>
+            body{
+                font-family: Arial, Helvetica, sans-serif;
+            }
+        </style>
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulador Financeiro</title>
-</head>
+    <body>
 
+        <h1>Simule Aqui</h1>
+        <p>Faça uma simulação do aumento de seus redimentos.</p>
 
-<body>
+        <p>Informe seu rendimento bruto:</p>
+        <input placeholder="R$0000.00" id="inputReceitaBruta">
+        <button onclick="calcularAumento()">Calcular</button>
 
-    <h1>Simule Aqui</h1>
-    <p>Faça uma simulação do aumento de seus redimentos.</p>
+        <!-- MENSAGENS -->
+        <h1>Aumentos gerais</h1>
+        <p id="msgGeral"></p>
+        <p id="msgAnuncio"></p>
 
+        <h1>Aumento temporal</h1>
+        <p id="msgMensal"></p>
+        <p id="msgAnual"></p>
 
-    <p>Receita Mensal</p>
-    <input placeholder="R$0000.00" id="inputReceitaMensal">
-    <button onclick="calcularAumento()">Calcular</button>
+        <h1>Aumento por setor</h1>
+        <p id="msgVestuario"></p>
+        <p id="msgMercado"></p>
+        <p id="msgCosmeticos"></p>
+        <p id="msgRestaurante"></p>
 
-
-    <h1>Aumentos gerais</h1>
-    <p id="mensagem1"></p>
-    <p id="mensagem2"></p>
-
-    <h1>Aumento Anual</h1>
-
-
-
-    <h1>Aumento por setor</h1>
-    <p id="msgVestuario"></p>
-    <p id="msgMercado"></p>
-    <p id="msgCosmeticos"></p>
-    <p id="msgVestuario"></p>
-
-
-</body>
-
+    </body>
 </html>
 
 <script>
 
     function calcularAumento() {
 
-        var receitaMensal = Number(inputReceitaMensal.value)
+        var rendBruto = Number(inputReceitaBruta.value);
+        var receitaMensal = rendBruto + (rendBruto * 0.058); 
+
         var totalAumentoCompra = receitaMensal * (70 / 100 + 1)
         var totalAumentoAnuncio = receitaMensal * (18 / 100 + 1)
 
@@ -52,24 +52,36 @@
         var rendimentoCosmeticos = receitaMensal * (14 / 100 + 1)
         var rendimentoRestaurante = receitaMensal * (13 / 100 + 1)
 
-        mensagem1.innerHTML =
+        
+        msgGeral.innerHTML =
             `Cerca de 70% dos clientes costumam comprar por impulso.
-        <br> Podemos ter um aumento de +R$${totalAumentoCompra - receitaMensal} 
+        <br> Podemos ter um aumento de <b>+R$${ (totalAumentoCompra - receitaMensal).toFixed(2) }</b> 
         mensais, aplicando estratégias com o auxílio de nossos mapas.`
 
-
-        mensagem2.innerHTML =
+        msgAnuncio.innerHTML =
             `18% das despesas das empresas são gastas em anúncios<br>
-        Podemos ter um acréscimo de +R$${totalAumentoAnuncio - receitaMensal} 
+        Podemos ter um acréscimo de <b>+R$${ (totalAumentoAnuncio - receitaMensal).toFixed(2) }</b>
         na receita mensal, com os alugueis dos locais de anúncios.`
 
-        msgVestuario.innerHTML = `Setores de vestuário podem ter um aumento de R$${(rendimentoVestuario - receitaMensal).toFixed(2)} na renda mensal`
 
-        msgMercado.innerHTML = `Setores de mercado podem ter um aumento de R$${(rendimentoSupermercado - receitaMensal).toFixed(2)} na renda mensal`
+        msgMensal.innerHTML = 
+        `Seu ganho mensal é de <b>R$${ receitaMensal.toFixed(2) }</b>`
 
-        msgCosmeticos.innerHTML = `Setores de cosméticos podem ter um aumento de R$${(rendimentoCosmeticos - receitaMensal).toFixed(2)} na renda mensal`
+        msgAnual.innerHTML= 
+        `Seu ganho anual é de <b>R$${ (receitaMensal * 12).toFixed(2) }</b>`
 
-        msgVestuario.innerHTML = `Setores de restaurante/bares podem ter um aumento de R$${(rendimentoRestaurante - receitaMensal).toFixed(2)} na renda mensal`
+
+        msgVestuario.innerHTML = 
+        `Setores de vestuário podem ter um aumento de <b>+R$${ (rendimentoVestuario - receitaMensal).toFixed(2) }</b> na renda mensal`
+
+        msgMercado.innerHTML = 
+        `Setores de mercado podem ter um aumento de <b>+R$${ (rendimentoSupermercado - receitaMensal).toFixed(2) }</b> na renda mensal`
+
+        msgCosmeticos.innerHTML = 
+        `Setores de cosméticos podem ter um aumento de <b>+R$${ (rendimentoCosmeticos - receitaMensal).toFixed(2) }</b> na renda mensal`
+
+        msgRestaurante.innerHTML = 
+        `Setores de restaurante/bares podem ter um aumento de <b>+R$${ (rendimentoRestaurante - receitaMensal).toFixed(2) }</b> na renda mensal`
 
     }
 

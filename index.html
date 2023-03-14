@@ -6,26 +6,46 @@
         <style>
             body{
                 font-family: Arial, Helvetica, sans-serif;
+                background-color: #1c1c1c;
+                color: rgb(221, 221, 221);
             }
+            .titulo {
+                font-size: 50px;
+                color: #0CE876;
+                font-weight: bold;
+                margin-top: 1%;
+            }
+            .subtitulo {
+                color: #0CE876;
+            }
+            .receita {
+                color: rgb(100, 99, 99);
+            }
+            .ganho {
+                color: #97e4bc;
+            }
+            
         </style>
     </head>
 
     <body>
+        
 
-        <h1>Simule Aqui</h1>
+        <p class="titulo">Simulador Financeiro</p>
         <p>Faça uma simulação do aumento de seus redimentos.</p>
 
-        <p>Informe seu rendimento bruto:</p>
+        <p>Informe seu rendimento bruto mensal:</p>
         <input placeholder="R$0000.00" id="inputReceitaBruta">
-        <button onclick="calcularAumento()">Calcular</button>
+        <button onclick="calcularAumento()">Calcular</button> <br>
 
+        
         <!-- MENSAGENS -->
-        <h1 id="msgAumentoGeral" style = "display: none">Aumentos gerais</h1>
+        <h1 id="msgAumentoGeral" style = "display: none" class="subtitulo">Aumentos gerais</h1>
         <p id="msgGeral"></p>
         <p id="msgMensal"></p>
         <p id="msgAnual"></p>
 
-        <h1 id="msgAumentoSetor" style="display: none;">Aumento por setor</h1>
+        <h1 id="msgAumentoSetor" style="display: none;" class="subtitulo">Aumento por setor</h1>
         <p id="msgVestuario"></p>
         <p id="msgMercado"></p>
         <p id="msgCosmeticos"></p>
@@ -39,13 +59,13 @@
     function calcularAumento() {
 
         var receitaMensal = Number(inputReceitaBruta.value);
+        var receitaAnual = receitaMensal * 12
 
-        var totalAumentoCompra = receitaMensal * 1.7
+        var ganhoMensal = receitaMensal * 1.7
 
-        var lucroMensal = totalAumentoCompra - receitaMensal
+        var lucroMensal = ganhoMensal - receitaMensal
 
-        var ganhoMensal = receitaMensal + lucroMensal
-        var ganhoAnual = (receitaMensal * 12) + (receitaMensal * 0.7 * 12)
+        var ganhoAnual = ganhoMensal * 12
 
         var rendimentoVestuario = receitaMensal * 19 / 100
         var rendimentoSupermercado = receitaMensal * 17 / 100
@@ -56,31 +76,32 @@
 
         msgAumentoGeral.style.display = 'block';
         msgAumentoSetor.style.display = 'block';
-        
+
+       
         msgGeral.innerHTML =
             `Cerca de 70% dos clientes costumam comprar por impulso.
-        <br> Podemos ter um aumento de <b>+R$${lucroMensal.toFixed(2) }</b> 
+        <br> Podemos ter um aumento de <b> <u>+R$${lucroMensal.toFixed(2) }</u></b> 
         mensais, aplicando estratégias com o auxílio de nossos mapas.`
 
 
         msgMensal.innerHTML= 
-        `Seu ganho mensal é de <b>R$${ganhoMensal.toFixed(2) }</b>`
+        `Sua receita mensal atual é de <b>R$${receitaMensal.toFixed(2)}</b> <br> Seu ganho mensal será de até <b class="ganho">R$${ganhoMensal.toFixed(2) }</b>`
 
         msgAnual.innerHTML= 
-        `Seu ganho anual é de <b>R$${ganhoAnual.toFixed(2) }</b>`
+        `Sua receita anual atual é de <b>R$${receitaAnual.toFixed(2)}</b> <br> Seu ganho anual será de até <b class="ganho">R$${ganhoAnual.toFixed(2) }</b>`
 
 
         msgVestuario.innerHTML = 
-        `Setores de vestuário podem ter um aumento de <b>+R$${rendimentoVestuario.toFixed(2) }</b> na renda mensal, que equivale a 19%`
+        `Setores de vestuário podem ter um aumento de <b><u>+R$${rendimentoVestuario.toFixed(2) }</u></b> na renda mensal, que equivale a 19%`
 
         msgMercado.innerHTML = 
-        `Setores de mercado podem ter um aumento de <b>+R$${rendimentoSupermercado.toFixed(2) }</b> na renda mensal, que equivale a 17%`
+        `Setores de mercado podem ter um aumento de <b><u>+R$${rendimentoSupermercado.toFixed(2) }</u></b> na renda mensal, que equivale a 17%`
 
         msgCosmeticos.innerHTML = 
-        `Setores de cosméticos podem ter um aumento de <b>+R$${rendimentoCosmeticos.toFixed(2) }</b> na renda mensal, que equivale a 14%`
+        `Setores de cosméticos podem ter um aumento de <b><u>+R$${rendimentoCosmeticos.toFixed(2) }</u></b> na renda mensal, que equivale a 14%`
 
         msgRestaurante.innerHTML = 
-        `Setores de restaurante/bares podem ter um aumento de <b>+R$${rendimentoRestaurante.toFixed(2) }</b> na renda mensal, que equivale a 13%`
+        `Setores de restaurante/bares podem ter um aumento de <b><u>+R$${rendimentoRestaurante.toFixed(2) }</u></b> na renda mensal, que equivale a 13%`
 
     }
 

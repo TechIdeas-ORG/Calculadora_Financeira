@@ -20,15 +20,12 @@
         <button onclick="calcularAumento()">Calcular</button>
 
         <!-- MENSAGENS -->
-        <h1>Aumentos gerais</h1>
+        <h1 id="msgAumentoGeral" style = "display: none">Aumentos gerais</h1>
         <p id="msgGeral"></p>
-        <p id="msgAnuncio"></p>
-
-        <h1>Aumento temporal</h1>
         <p id="msgMensal"></p>
         <p id="msgAnual"></p>
 
-        <h1>Aumento por setor</h1>
+        <h1 id="msgAumentoSetor" style="display: none;">Aumento por setor</h1>
         <p id="msgVestuario"></p>
         <p id="msgMercado"></p>
         <p id="msgCosmeticos"></p>
@@ -41,47 +38,49 @@
 
     function calcularAumento() {
 
-        var rendBruto = Number(inputReceitaBruta.value);
-        var receitaMensal = rendBruto + (rendBruto * 0.058); 
+        var receitaMensal = Number(inputReceitaBruta.value);
 
-        var totalAumentoCompra = receitaMensal * (70 / 100 + 1)
-        var totalAumentoAnuncio = receitaMensal * (18 / 100 + 1)
+        var totalAumentoCompra = receitaMensal * 1.7
 
-        var rendimentoVestuario = receitaMensal * (19 / 100 + 1)
-        var rendimentoSupermercado = receitaMensal * (17 / 100 + 1)
-        var rendimentoCosmeticos = receitaMensal * (14 / 100 + 1)
-        var rendimentoRestaurante = receitaMensal * (13 / 100 + 1)
+        var lucroMensal = totalAumentoCompra - receitaMensal
 
+        var ganhoMensal = receitaMensal + lucroMensal
+        var ganhoAnual = (receitaMensal * 12) + (receitaMensal * 0.7 * 12)
+
+        var rendimentoVestuario = receitaMensal * 19 / 100
+        var rendimentoSupermercado = receitaMensal * 17 / 100
+        var rendimentoCosmeticos = receitaMensal * 14 / 100
+        var rendimentoRestaurante = receitaMensal * 13 / 100
+
+
+
+        msgAumentoGeral.style.display = 'block';
+        msgAumentoSetor.style.display = 'block';
         
         msgGeral.innerHTML =
             `Cerca de 70% dos clientes costumam comprar por impulso.
-        <br> Podemos ter um aumento de <b>+R$${ (totalAumentoCompra - receitaMensal).toFixed(2) }</b> 
+        <br> Podemos ter um aumento de <b>+R$${lucroMensal.toFixed(2) }</b> 
         mensais, aplicando estratégias com o auxílio de nossos mapas.`
 
-        msgAnuncio.innerHTML =
-            `18% das despesas das empresas são gastas em anúncios<br>
-        Podemos ter um acréscimo de <b>+R$${ (totalAumentoAnuncio - receitaMensal).toFixed(2) }</b>
-        na receita mensal, com os alugueis dos locais de anúncios.`
 
-
-        msgMensal.innerHTML = 
-        `Seu ganho mensal é de <b>R$${ receitaMensal.toFixed(2) }</b>`
+        msgMensal.innerHTML= 
+        `Seu ganho mensal é de <b>R$${ganhoMensal.toFixed(2) }</b>`
 
         msgAnual.innerHTML= 
-        `Seu ganho anual é de <b>R$${ (receitaMensal * 12).toFixed(2) }</b>`
+        `Seu ganho anual é de <b>R$${ganhoAnual.toFixed(2) }</b>`
 
 
         msgVestuario.innerHTML = 
-        `Setores de vestuário podem ter um aumento de <b>+R$${ (rendimentoVestuario - receitaMensal).toFixed(2) }</b> na renda mensal`
+        `Setores de vestuário podem ter um aumento de <b>+R$${rendimentoVestuario.toFixed(2) }</b> na renda mensal, que equivale a 19%`
 
         msgMercado.innerHTML = 
-        `Setores de mercado podem ter um aumento de <b>+R$${ (rendimentoSupermercado - receitaMensal).toFixed(2) }</b> na renda mensal`
+        `Setores de mercado podem ter um aumento de <b>+R$${rendimentoSupermercado.toFixed(2) }</b> na renda mensal, que equivale a 17%`
 
         msgCosmeticos.innerHTML = 
-        `Setores de cosméticos podem ter um aumento de <b>+R$${ (rendimentoCosmeticos - receitaMensal).toFixed(2) }</b> na renda mensal`
+        `Setores de cosméticos podem ter um aumento de <b>+R$${rendimentoCosmeticos.toFixed(2) }</b> na renda mensal, que equivale a 14%`
 
         msgRestaurante.innerHTML = 
-        `Setores de restaurante/bares podem ter um aumento de <b>+R$${ (rendimentoRestaurante - receitaMensal).toFixed(2) }</b> na renda mensal`
+        `Setores de restaurante/bares podem ter um aumento de <b>+R$${rendimentoRestaurante.toFixed(2) }</b> na renda mensal, que equivale a 13%`
 
     }
 

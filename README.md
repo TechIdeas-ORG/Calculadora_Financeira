@@ -40,3 +40,5 @@ Aumentar em até **70%** as vendas causadas por impulso.
 - Sensor disponibilizado (TCRT5000) abaixo do recomendado (LM393);
 - Orçamento disponível de R$0,00;
 - 14 dias disponíveis para a produção do projeto (≅ 50 horas totais);
+
+#

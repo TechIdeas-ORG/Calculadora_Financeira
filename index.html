@@ -1,108 +1,154 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-    <head>
-        <meta charset="UTF-8">
-        <title>Simulador Financeiro</title>
-        <style>
-            body{
-                font-family: Arial, Helvetica, sans-serif;
-                background-color: #1c1c1c;
-                color: rgb(221, 221, 221);
+<!doctype html>
+<html>
+
+<head>
+    <title>Dashboard</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
+    <script src="http://www.chartjs.org/samples/latest/utils.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <style>
+        canvas {
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+        }
+    </style>
+</head>
+<header>
+    <div id="nav">
+        <nav>
+            <a class='logo' href="index.html"><img src="img/Logo.png" alt="fotoEmpresa"></a>
+            <ul class="nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="sobreNos.html">Sobre Nós</a></li>
+                <li><a href="equipe.html" class="active">Equipe</a></li>
+                <li><a href="produtos.html">Produtos</a></li>
+                <li><a href="calculadora.html">Calculadora</a></li>
+                <li><a href="telaContato.html">Contatos</a></li>
+                <div class="auth-container">
+                    <a href="#"><div class="anim-auth left"></div>Login</a>
+                    <a href="#">Registro<div class="anim-auth right"></div></a>
+                </div>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="page-title container">
+    <h1>Dashboard Empresa Fulano</h1>
+    <div></div>
+</div>
+<body>
+    <div class="areaGrafico">
+        <h1>Ambiente 1</h1>
+        <section style="width: 100%;">
+            <canvas id="chave"></canvas>
+        </section>
+    </div>
+
+    <script>
+        /* -- chave */
+        var contextoChave = document.getElementById('chave').getContext('2d');
+        contextoChave.canvas.width = 1000;
+        contextoChave.canvas.height = 300;
+        var chave = new Chart(
+            contextoChave,
+            {
+                type: 'line',
+                data: {
+                    datasets: [{
+                        label: 'Chave',
+                        type: 'line',
+                        data: [10, 90, 10, 45, 122,  93],
+                        borderColor: ['#FFFFFF'],
+                        backgroundColor: ['#00ff43']
+                    }]
+                },
+                options: {
+                    legend:{
+                        labels:{
+                            fontColor: "#FFFFFF"
+                        },
+                    },
+                    plugins:{
+                        customCanvasBackgroundColor:{
+                            color: 'LightGreen',
+                        }
+                    },
+                    scales: {
+                        xAxes: [{
+                            distribution: 'series',
+                            ticks: {
+                                fontColor: 'FFF',
+                                beginAtZero: true
+                            }
+                        }],
+                        yAxes: [{
+                            scaleLabel: {
+                                fontColor: ['#fffff'],
+                                display: true,
+                                labelString: 'Chave'
+                            },
+                            ticks: {
+                                fontColor: ['#fffff'],    
+                                beginAtZero: true
+                            }
+                        }]
+                    },
+                    animation: {
+                        duration: 0
+                    }
+                }
             }
-            .titulo {
-                font-size: 50px;
-                color: #0CE876;
-                font-weight: bold;
-                margin-top: 1%;
+        );
+
+        var paginacao = {};
+        var tempo = {};/*
+        function obterDados(grafico, endpoint) {*/
+            /*var http = new XMLHttpRequest();
+            http.open('GET', 'http://localhost:3000/sensores/' + endpoint, false);
+            http.send(null);
+            var valores = JSON.parse(http.responseText);
+            if (paginacao[endpoint] == null) {
+                paginacao[endpoint] = 0;
             }
-            .subtitulo {
-                color: #0CE876;
+            if (tempo[endpoint] == null) {
+                tempo[endpoint] = 0;
             }
-            .receita {
-                color: rgb(100, 99, 99);
+            // Exibir à partir do último elemento exibido anteriormente
+            var ultimaPaginacao = paginacao[endpoint];
+            paginacao[endpoint] = valores.length;
+            var valores = valores.slice(ultimaPaginacao);
+            valores = [10, 20, 30, 40, 50, 50, 70 ]
+            valores.forEach((valor) => {
+
+            for(var i = 0; i <= valores.length; i++){
+                grafico.data.labels.push[]
             }
-            .ganho {
-                color: #97e4bc;
-            }
-            
-        </style>
-    </head>
+                //Máximo de 60 itens exibidos no gráfico
+                if (grafico.data.labels.length == 10 && grafico.data.datasets[0].data.length == 10) {
+                    grafico.data.labels.shift();
+                    grafico.data.datasets[0].data.shift();
+                }
 
-    <body>
-        
+                grafico.data.labels.push(tempo[endpoint]++);
+                grafico.data.datasets[0].data.push(parseFloat(valor));
+                grafico.update();
+            })
+        }
+    
 
-        <p class="titulo">Simulador Financeiro</p>
-        <p>Faça uma simulação do aumento de seus redimentos.</p>
+        setInterval(() => {
+            obterDados(dht11Umidade, 'dht11/umidade');
+            obterDados(dht11Temperatura, 'dht11/temperatura');
+            obterDados(luminosidade, 'luminosidade');
+            obterDados(lm35Temperatura, 'lm35/temperatura');
+            obterDados(chave, 'chave');
+        }, 1000);*/
 
-        <p>Informe seu rendimento bruto mensal:</p>
-        <input placeholder="R$0000.00" id="inputReceitaBruta">
-        <button onclick="calcularAumento()">Calcular</button> <br>
+    </script>
+</body>
 
-        
-        <!-- MENSAGENS -->
-        <h1 id="msgAumentoGeral" style = "display: none" class="subtitulo">Aumentos gerais</h1>
-        <p id="msgGeral"></p>
-        <p id="msgMensal"></p>
-        <p id="msgAnual"></p>
-
-        <h1 id="msgAumentoSetor" style="display: none;" class="subtitulo">Aumento por setor</h1>
-        <p id="msgVestuario"></p>
-        <p id="msgMercado"></p>
-        <p id="msgCosmeticos"></p>
-        <p id="msgRestaurante"></p>
-
-    </body>
 </html>
-
-<script>
-
-    function calcularAumento() {
-
-        var receitaMensal = Number(inputReceitaBruta.value);
-        var receitaAnual = receitaMensal * 12
-
-        var ganhoMensal = receitaMensal * 1.7
-
-        var lucroMensal = ganhoMensal - receitaMensal
-
-        var ganhoAnual = ganhoMensal * 12
-
-        var rendimentoVestuario = receitaMensal * 19 / 100
-        var rendimentoSupermercado = receitaMensal * 17 / 100
-        var rendimentoCosmeticos = receitaMensal * 14 / 100
-        var rendimentoRestaurante = receitaMensal * 13 / 100
-
-
-
-        msgAumentoGeral.style.display = 'block';
-        msgAumentoSetor.style.display = 'block';
-
-       
-        msgGeral.innerHTML =
-            `Cerca de 70% dos clientes costumam comprar por impulso.
-        <br> Podemos ter um aumento de <b> <u>+R$${lucroMensal.toFixed(2) }</u></b> 
-        mensais, aplicando estratégias com o auxílio de nossos mapas.`
-
-
-        msgMensal.innerHTML= 
-        `Sua receita mensal atual é de <b>R$${receitaMensal.toFixed(2)}</b> <br> Seu ganho mensal será de até <b class="ganho">R$${ganhoMensal.toFixed(2) }</b>`
-
-        msgAnual.innerHTML= 
-        `Sua receita anual atual é de <b>R$${receitaAnual.toFixed(2)}</b> <br> Seu ganho anual será de até <b class="ganho">R$${ganhoAnual.toFixed(2) }</b>`
-
-
-        msgVestuario.innerHTML = 
-        `Setores de vestuário podem ter um aumento de <b><u>+R$${rendimentoVestuario.toFixed(2) }</u></b> na renda mensal, que equivale a 19%`
-
-        msgMercado.innerHTML = 
-        `Setores de mercado podem ter um aumento de <b><u>+R$${rendimentoSupermercado.toFixed(2) }</u></b> na renda mensal, que equivale a 17%`
-
-        msgCosmeticos.innerHTML = 
-        `Setores de cosméticos podem ter um aumento de <b><u>+R$${rendimentoCosmeticos.toFixed(2) }</u></b> na renda mensal, que equivale a 14%`
-
-        msgRestaurante.innerHTML = 
-        `Setores de restaurante/bares podem ter um aumento de <b><u>+R$${rendimentoRestaurante.toFixed(2) }</u></b> na renda mensal, que equivale a 13%`
-
-    }
-
-</script>

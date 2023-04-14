@@ -1,0 +1,127 @@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/calculadora.css">
+
+    <title>Tech Ideas</title>
+</head>
+
+<body>
+    <header>
+        <div id="nav">
+            <nav>
+                <a class='logo' href="index.html"><img src="img/Logo.png" alt="fotoEmpresa"></a>
+                <ul class="nav-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="sobreNos.html">Sobre Nós</a></li>
+                    <li><a href="equipe.html">Equipe</a></li>
+                    <li><a href="produtos.html">Produtos</a></li>
+                    <li><a href="calculadora.html" class="active">Calculadora</a></li>
+                    <li><a href="telaContato.html">Contatos</a></li>
+                    <div class="auth-container">
+                        <a href="#"><div class="anim-auth left"></div>Login</a>
+                        <a href="#">Registro<div class="anim-auth right"></div></a>
+                    </div>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-title container">
+        <h1>Simulador</h1>
+        <div></div>
+    </div>
+    <div class="container1">
+        <div class="ret-branco">
+            <h1 class="simuleh1">SIMULE AQUI
+            </h1>
+            <h4 class="subTitulo">Faça uma simulação do seu
+                aumento de rendimento utilizando nossos mapas</h4>
+
+            <p class="renda">RENDA MENSAL DO ESTABELECIMENTO:</p>
+            <input class="inserir" placeholder="Digite aqui..." id="inputReceitaBruta">
+            <button class="botao" onclick="calcularAumento()">Simular</button> <br>
+        </div>
+            <div class="ret-verde">
+
+                <div class="card1">
+                    <h2>Aumento Geral</h2>
+                    <img class="imgGeral"  title="Gráfico" src="img/Vector (4).png" alt="grafico">
+                    <div id="div_geral"></div>
+                    <div class="divcima1" title="Você pode aumentar as suas vendas em até 70% utilizando nossos sensores"><h6>?</h6></div>
+                </div>
+            <div class="container3">
+                <div class="card">
+                    <h5>Vestuários</h5>
+                    <img src="img/vestuario.png" title="Vestuário" alt="vestuario" class="img1">
+                   
+                    <div id="div_vestuarios"></div>
+                    <div class="divcima" title="Setores de vestuário podem ter um aumento de até 19% em sua renda mensal!"><h6>?</h6></div>
+                </div>
+                <div class="card">
+                    <h5>Mercados</h5>
+                    <img src="img/mercados.png" title="Mercados" alt="Mercados" class="img1">
+                    
+                    <div id="div_mercados"></div>
+                    <div class="divcima" title="Setores de mercado podem ter um aumento de até 17% na sua renda mensal!"><h6>?</h6></div>
+                </div>
+            </div>
+            <div class="container4">
+                <div class="card">
+                    <h5>Alimenticio</h5>
+                    <img src="img/alimenticio.png" title="Alimenticio" alt="alimenticio" class="img1">
+                    
+                    <div id="div_alimenticio"></div>
+                    <div class="divcima" title="Setores alimenticios podem ter um aumento de até 13% na sua renda mensal!"><h6>?</h6></div>
+                </div>
+                <div class="card">
+                    <h5>Cosméticos</h5>
+                    <img src="img/cosmetico.png" title="Cosméticos" alt="cosmetico" class="img1">
+                   
+                    <div id="div_cosmeticos"></div>
+                    <div class="divcima" title="Setores de cosméticos podem ter um aumento de até 14% na sua renda meensal!"><h6>?</h6></div>
+                </div>
+            </div>
+       
+        
+    </div>
+
+
+
+
+
+</body>
+
+</html>
+<script>
+    function calcularAumento() {
+
+        var receitaMensal = Number(inputReceitaBruta.value);
+        var receitaAnual = receitaMensal * 12
+
+        var ganhoMensal = receitaMensal * 1.7
+
+        var lucroMensal = ganhoMensal - receitaMensal
+
+        var ganhoAnual = ganhoMensal * 12
+
+        var rendimentoVestuario = receitaMensal * 19 / 100
+        var rendimentoSupermercado = receitaMensal * 17 / 100
+        var rendimentoCosmeticos = receitaMensal * 14 / 100
+        var rendimentoRestaurante = receitaMensal * 13 / 100
+
+
+    if(receitaMensal>= 0){
+    div_geral.innerHTML = `R$${ganhoMensal.toFixed(2)}`
+    div_vestuarios.innerHTML =`R$${rendimentoVestuario.toFixed(2)}`
+    div_mercados.innerHTML =`R$${rendimentoSupermercado.toFixed(2)}`
+    div_alimenticio.innerHTML =`R$${rendimentoRestaurante.toFixed(2)}`
+    div_cosmeticos.innerHTML = `R$${rendimentoCosmeticos.toFixed(2)}`
+    }
+    else{
+        alert(`Verifique se o campo esta`)
+    }
+    }
+</script>

@@ -1,0 +1,178 @@
+.ret-branco {
+    position: absolute;
+    width: 253px;
+    height: 400px;
+    left: 77px;
+    top: 187px;
+
+    background: #FFFFFF;
+    border-radius: 15px 0px 0px 15px;
+}
+
+.ret-verde {
+    justify-content: center;    
+flex-direction: column;
+    position: absolute;
+    display: flex;
+    width: 750px;
+    height: 400px;
+    left: 77px;
+    top: 187px;
+    margin-left: 250px;
+    background: #3BDB43;
+    border-radius: 0px 15px 15px 0px;
+    align-items: center;
+}
+
+.simuleh1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 20px;
+    padding-top: 70px;
+}
+.subTitulo{
+font-weight: lighter;
+display: flex;
+flex-direction: column;
+padding-left: 20px;
+
+}
+.renda{
+    display: flex;
+flex-direction: column;
+padding-left: 20px;
+margin-top: 50px;
+font-weight: bold;
+font-size: 10px;
+
+}
+.inserir{
+display: flex;
+padding-left: 20px;
+height: 30px;
+width: 200px;
+margin-left: 20px;
+border-radius: 3px;
+border: solid 1px gray;
+}
+
+.botao{
+    border-radius: 15px;
+    height: 40px;
+    width: 140px;
+    margin-top: 30px;
+display: flex;
+justify-content: center;
+align-items: center;
+margin-left: 50px;
+background-color:#0CE817;
+border: none;
+color: white;
+font-weight: bold;
+border: none;
+}
+
+.card1{
+    margin-top: 30px;
+    margin-left: 20px;
+height: 120px;
+width: 600px;
+    display: flex;
+    justify-content: center;
+border-radius: 10px;
+    background-color: white;
+    text-align: center;
+   
+    
+
+}
+.card{
+    margin-top: 20px;
+display: flex;
+justify-content:center;
+background-color: white;
+height: 80px;
+border-radius: 10px;
+width: 300px;
+align-items: baseline;
+margin-left: 40px;
+
+
+}
+.container3{ 
+    
+    display: flex;
+    
+}
+.container4{
+    display: flex;
+
+}
+.divcima{
+  
+    margin-top: 5px;
+    background-color:#0A600E;
+display: flex;
+justify-content: center;
+align-items: center;
+position: fixed;
+    width: 19px;
+    height: 19px;
+    border-radius: 20px ;
+    margin-left: 260px ;
+}
+h6{
+    cursor: pointer;
+color: white;
+}
+h5{
+   position: absolute;
+}
+img{
+    margin-top: 25px;
+    margin-right: 110px;
+}
+h2{
+    margin-top: 5px;
+   position: absolute;
+}
+.card1 img{
+    margin-top: 40px;
+    margin-right: 450px;
+    height: 60px;
+    width: 60px;
+}
+
+.img1{
+    position: absolute;
+    margin-right: 200px;
+}
+.imgGeral{
+    position: absolute;
+}
+#div_vestuarios,#div_cosmeticos,#div_alimenticio,#div_mercados{
+    margin-top: 40px;
+   font-size: 20px;
+   font-weight: bolder;
+   
+}
+#div_geral{
+    margin-top: 55px;
+    font-size: 40px;
+    font-weight: bold;
+
+}
+.divcima1{
+    margin-top: 5px;
+    background-color:#0A600E;
+display: flex;
+justify-content: center;
+align-items: center;
+position: fixed;
+    width: 19px;
+    height: 19px;
+    border-radius: 20px ;
+    margin-left: 550px ;
+
+}
